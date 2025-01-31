@@ -15,7 +15,7 @@ variable "subnet" {
 
 variable "public_key" {
   description = "SSH public key to access VM"
-  type = string
+  type        = string
 }
 
 variable "tags" {
@@ -23,7 +23,7 @@ variable "tags" {
   type        = map(any)
 }
 
-variable "count" {
+variable "vm_count" {
   description = "Number of VMs to deploy"
   type        = number
   default     = 1
