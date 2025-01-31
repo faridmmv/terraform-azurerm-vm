@@ -7,7 +7,7 @@ resource "azurerm_subnet" "this" {
 }
 
 resource "azurerm_public_ip" "this" {
-  count               = var.connector_count
+  count               = var.count
   name                = "pip-${count.index}"
   location            = var.location
   resource_group_name = var.rg_name
@@ -51,7 +51,7 @@ resource "azurerm_network_security_group" "this" {
 }
 
 resource "azurerm_network_interface" "this" {
-  count               = var.connector_count
+  count               = var.count
   name                = "nic-${count.index}"
   location            = var.location
   resource_group_name = var.rg_name
@@ -74,13 +74,13 @@ resource "azurerm_network_interface" "this" {
 }
 
 resource "azurerm_network_interface_security_group_association" "this" {
-  count                     = var.connector_count
+  count                     = var.count
   network_interface_id      = azurerm_network_interface.this[count.index].id
   network_security_group_id = azurerm_network_security_group.this.id
 }
 
 resource "azurerm_linux_virtual_machine" "this" {
-  count                 = var.connector_count
+  count                 = var.count
   name                  = "vm-${count.index}"
   location              = var.location
   resource_group_name   = var.rg_name
