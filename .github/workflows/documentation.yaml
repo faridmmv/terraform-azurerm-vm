@@ -17,7 +17,7 @@ jobs:
       run: terraform fmt -check -recursive
 
     - name: Render terraform docs inside the README.md and push changes back to PR branch
-      uses: terraform-docs/gh-actions@v1.3.0
+      uses: terraform-docs/gh-actions@main
       with:
         working-dir: .
         output-file: README.md

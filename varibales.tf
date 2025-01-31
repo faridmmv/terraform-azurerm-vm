@@ -15,7 +15,7 @@ variable "subnet" {
 
 variable "public_key" {
   description = "SSH public key to access VM"
-  type = string
+  type        = string
 }
 
 variable "tags" {
