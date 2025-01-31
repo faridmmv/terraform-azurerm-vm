@@ -32,13 +32,14 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_count"></a> [count](#input\_count) | Number of VMs to deploy | `number` | `1` | no |
 | <a name="input_location"></a> [location](#input\_location) | n/a | `any` | n/a | yes |
 | <a name="input_public_key"></a> [public\_key](#input\_public\_key) | SSH public key to access VM | `string` | n/a | yes |
 | <a name="input_rg_name"></a> [rg\_name](#input\_rg\_name) | n/a | `any` | n/a | yes |
+| <a name="input_size"></a> [size](#input\_size) | VM Size to deploy | `string` | `"Standard_B2ms"` | no |
 | <a name="input_subnet"></a> [subnet](#input\_subnet) | Subnet for VM | `any` | n/a | yes |
 | <a name="input_subnet_name"></a> [subnet\_name](#input\_subnet\_name) | Name of subnet for VM | `string` | `"vm"` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | default tags to apply to resources | `map(any)` | n/a | yes |
+| <a name="input_vm_count"></a> [vm\_count](#input\_vm\_count) | Number of VMs to deploy | `number` | `1` | no |
 | <a name="input_vnet_name"></a> [vnet\_name](#input\_vnet\_name) | n/a | `any` | n/a | yes |
 
 ## Outputs
