@@ -79,26 +79,6 @@ resource "azurerm_network_interface_security_group_association" "this" {
   network_security_group_id = azurerm_network_security_group.this.id
 }
 
-data "template_cloudinit_config" "this" {
-  count         = var.connector_count
-  gzip          = true
-  base64_encode = true
-
-  # Main cloud-config configuration file.
-  part {
-    content_type = "text/x-shellscript"
-    content = templatefile(
-      "${path.module}/templates/wg.tpl",
-
-      {
-        key      = element(var.keys, count.index)
-        pub      = var.wgpub
-        endpoint = var.endpoint
-      }
-    )
-  }
-}
-
 resource "azurerm_linux_virtual_machine" "this" {
   count                 = var.connector_count
   name                  = "vm-${count.index}"
@@ -106,7 +86,6 @@ resource "azurerm_linux_virtual_machine" "this" {
   resource_group_name   = var.rg_name
   network_interface_ids = [azurerm_network_interface.this[count.index].id]
   size                  = "Standard_B2ms"
-  user_data             = data.template_cloudinit_config.this[count.index].rendered
 
   os_disk {
     name                 = "vm"
