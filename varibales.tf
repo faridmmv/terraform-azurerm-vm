@@ -23,7 +23,7 @@ variable "tags" {
   type        = map(any)
 }
 
-variable "count" {
+variable "vm_count" {
   description = "Number of VMs to deploy"
   type        = number
   default     = 1
