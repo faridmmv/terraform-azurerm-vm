@@ -28,3 +28,9 @@ variable "count" {
   type        = number
   default     = 1
 }
+
+variable "size" {
+  description = "VM Size to deploy"
+  type        = string
+  default     = "Standard_B2ms"
+}

@@ -85,7 +85,7 @@ resource "azurerm_linux_virtual_machine" "this" {
   location              = var.location
   resource_group_name   = var.rg_name
   network_interface_ids = [azurerm_network_interface.this[count.index].id]
-  size                  = "Standard_B2ms"
+  size                  = var.size
 
   os_disk {
     name                 = "vm"
