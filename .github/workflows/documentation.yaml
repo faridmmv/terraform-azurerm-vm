@@ -1,6 +1,13 @@
 name: Generate terraform docs
 on:
-  - pull_request
+  release:
+    types: [published]
+  pull_request:
+    branches: [master]
+  push:
+    branches: [master]
+    paths-ignore:
+      - '.github/workflows/**'
 jobs:
   docs:
     runs-on: ubuntu-latest
